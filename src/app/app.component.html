@@ -1,3 +1,48 @@
 <h1>
   {{title}}
 </h1>
+<nav>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo">Logo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li>
+          <a  (click)="listarHoteles()"
+              class="waves-effect waves-light btn">
+              Ver los hoteles existentes
+          </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Page Layout here -->
+<div class="row">
+
+  <div class="col s12 m4 l2" style="margin-top:20px;"> <!-- Note that "m4 l3" was added -->
+    <div class="chip">
+      <img src="https://s.gravatar.com/avatar/b95021aad667876effd8c427382edf4c?s=80" alt="Contact Person">
+      Daniel Gallo
+    </div>
+  </div>
+
+  <div class="col s12 m8 l10"> <!-- Note that "m8 l9" was added -->
+    <app-crear-hotel-component></app-crear-hotel-component>
+  </div>
+</div>
+
+<div id="modal_listado_hoteles" class="modal bottom-sheet open" style="z-index: 1003; display: block; opacity: 1; bottom: 0px; visibility:hidden;">
+  <div class="modal-content">
+    <h4>Listado de hoteles</h4>
+    <ul class="collection">
+      <li *ngFor="let hotel of hotelesList"
+          class="collection-item avatar">
+        <i class="material-icons circle green">assessment</i>
+        <span class="title">{{hotel.name}}</span>
+        <p>{{hotel.start}}<br>
+           {{hotel.price}}
+        </p>
+        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      </li>
+    </ul>
+  </div>
+</div>

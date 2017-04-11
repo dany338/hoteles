@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col l4">
+        <div class="card darken-1">
+             <div class="card-content   ">
+                 <span class="card-title">Card Hotel</span>
+                    <p>Sus hoteles a la vista!!!
+                     </p>
+              </div>
+              <div class="card-action">
+                  <a href="#">Hotel</a>
+                  <a href="#">Hotel</a>
+             </div>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <form class="col s10" #formHotel="ngForm" novalidate>
+     <div class="row">
+        <div class="input-field col s5">
+            <input  id="name"
+                    type="text"
+                    class="validate"
+                    [class.invalid]="!nameTxt.valid"
+                    name="name"
+                    #nameTxt="ngModel"
+                    [(ngModel)]="hotelACrear.name"
+                    required>
+
+            <label  for="name"
+                    data-error="El nombre es requerido"
+                    data-success="Ok">Name</label>
+        </div>
+
+        <div class="input-field col s5">
+            <i class="material-icons prefix">account_circle</i>
+            <input  id="start"
+                    type="text"
+                    class="validate"
+                    [class.invalid]="!startTxt.valid"
+                    name="start"
+                    #startTxt="ngModel"
+                    [(ngModel)]="hotelACrear.start"
+                    required>
+
+            <label  for="nombre"
+                    data-error="El inicio es requerido"
+                    data-success="Ok">Start</label>
+        </div>
+     </div>
+     <div class="row">
+        <div class="input-field col s5">
+            <input  id="price"
+                    type="text"
+                    class="validate"
+                    [class.invalid]="!priceTxt.valid"
+                    name="price"
+                    #priceTxt="ngModel"
+                    [(ngModel)]="hotelACrear.price"
+                    required>
+
+            <label  for="price"
+                    data-error="The price is required"
+                    data-success="Ok">Price</label>
+        </div>
+
+     </div>
+     <div class="row">
+        <div class="col s10">
+          <br/>
+          <button class="btn waves-effect waves-light"
+                  type="submit"
+                  name="action"
+                  [disabled]="!formHotel.valid"
+                  (click)="saveHotel()">
+            Guardar
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+     </div>
+  </form>
+</div>
